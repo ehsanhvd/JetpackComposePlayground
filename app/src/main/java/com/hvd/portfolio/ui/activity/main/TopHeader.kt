@@ -5,11 +5,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ModeNight
+import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -50,8 +51,14 @@ fun TopRow() {
 
         Spacer(modifier = Modifier.weight(1f))
 
-        MontserratTextButton("\uD83C\uDDEE\uD83C\uDDF7", fontSize = 20.sp)
-        Icon(Icons.Filled.ModeNight, "Night mode")
+        MontserratTextButton("\uD83C\uDDEE\uD83C\uDDF7", fontSize = 25.sp)
+        Icon(
+            Icons.Filled.DarkMode,
+            modifier = Modifier
+                .width(32.dp)
+                .height(32.dp), contentDescription = "Night mode",
+            tint = Color.DarkGray
+        )
     }
 }
 

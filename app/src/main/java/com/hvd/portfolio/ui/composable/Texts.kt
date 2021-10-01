@@ -1,8 +1,6 @@
 package com.hvd.portfolio.ui.composable
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -40,13 +38,20 @@ fun VazirTextButton(text: String) {
 }
 
 @Composable
-fun MontserratTextButton(text: String, fontSize: TextUnit = TextUnit.Unspecified,) {
+fun MontserratTextButton(text: String, fontSize: TextUnit = TextUnit.Unspecified) {
     Box(
         Modifier
-            .height(48.dp)
-            .width(48.dp), Alignment.Center
+            .height(56.dp)
+            .width(56.dp), Alignment.Center
     ) {
-        MontserratText(text, fontSize = fontSize, textAlign = TextAlign.Center)
+        MontserratText(
+            text,
+            Modifier
+                .fillMaxHeight()
+                .fillMaxWidth(),
+            fontSize = fontSize,
+            textAlign = TextAlign.Center
+        )
     }
 }
 
