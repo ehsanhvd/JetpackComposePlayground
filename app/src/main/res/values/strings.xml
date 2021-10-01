@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ehsan Hasanvand Portfolio</string>
+    <string name="profileImage">Profile pic</string>
+    <string name="nightMode">Night\nmode</string>
+    <string name="ehsanHasanvand">Ehsan Hasanvand</string>
+    <string name="ehsanLineBreakHasanvand">Ehsan\nHasanvand</string>
+</resources>
