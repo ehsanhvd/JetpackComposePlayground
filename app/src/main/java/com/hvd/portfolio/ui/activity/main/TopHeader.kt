@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hvd.portfolio.R
@@ -27,10 +28,16 @@ fun TopHeader() {
 
         MontserratText(
             stringResource(R.string.ehsanLineBreakHasanvand),
-            Modifier.padding(16.dp, 0.dp, 16.dp, 0.dp),
+            Modifier.padding(16.dp, 0.dp),
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold
         )
+
+        MontserratText(stringResource(R.string.abountMe),
+            Modifier.padding(16.dp, 0.dp),
+            fontSize = 12.sp,
+            textAlign = TextAlign.Justify,
+            color = Color.Gray)
     }
 }
 
