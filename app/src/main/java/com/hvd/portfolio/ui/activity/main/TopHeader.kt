@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hvd.portfolio.R
+import com.hvd.portfolio.ui.composable.MontserratSmallButton
 import com.hvd.portfolio.ui.composable.MontserratText
 import com.hvd.portfolio.ui.composable.MontserratTextButton
 
@@ -30,7 +31,7 @@ fun TopHeader() {
             stringResource(R.string.ehsanLineBreakHasanvand),
             Modifier.padding(16.dp, 0.dp),
             fontSize = 40.sp,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
         )
 
         MontserratText(stringResource(R.string.abountMe),
@@ -38,6 +39,20 @@ fun TopHeader() {
             fontSize = 12.sp,
             textAlign = TextAlign.Justify,
             color = Color.Gray)
+
+        Row (Modifier.padding(16.dp)){
+            Column(Modifier.weight(1f)) {
+                MontserratSmallButton("Call")
+            }
+            Spacer(modifier = Modifier.width(16.dp))
+            Column(Modifier.weight(1f)) {
+                MontserratSmallButton("LinkedIn")
+            }
+            Spacer(modifier = Modifier.width(16.dp))
+            Column(Modifier.weight(1f)) {
+                MontserratSmallButton("Telegram")
+            }
+        }
     }
 }
 
@@ -64,7 +79,6 @@ fun TopRow() {
             modifier = Modifier
                 .width(32.dp)
                 .height(32.dp), contentDescription = "Night mode",
-            tint = Color.DarkGray
         )
     }
 }

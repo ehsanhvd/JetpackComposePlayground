@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.hvd.portfolio.ui.theme.EhsanHasanvandPortfolioTheme
 import com.hvd.portfolio.utils.ActivityStyleUtils
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +31,5 @@ fun DefaultPreview() {
 
 @Composable
 fun MainActivityContent(){
-    EhsanHasanvandPortfolioTheme {
-        TopHeader()
-    }
+    TopHeader()
 }
