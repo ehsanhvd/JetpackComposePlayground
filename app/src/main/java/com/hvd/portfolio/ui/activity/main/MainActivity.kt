@@ -4,8 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.hvd.portfolio.R
+import com.hvd.portfolio.ui.composable.Tabs
 import com.hvd.portfolio.utils.ActivityStyleUtils
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,6 +33,10 @@ fun DefaultPreview() {
 }
 
 @Composable
-fun MainActivityContent(){
-    TopHeader()
+fun MainActivityContent() {
+    Column {
+        TopHeader()
+
+        Tabs(tabs = listOf(R.string.experience, R.string.skills, R.string.education))
+    }
 }
