@@ -9,4 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundColor">@color/white</color>
     <color name="greyish">#a5a5a5</color>
+    <color name="telegramLeftColor">#135393</color>
+    <color name="telegramRightColor">#043667</color>
+
+    <color name="linkedInLeftColor">#618CB6</color>
+    <color name="linkedInRightColor">#3B6083</color>
+    <color name="iconTintColor">#4D565F</color>
 </resources>

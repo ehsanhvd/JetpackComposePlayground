@@ -1,69 +1,57 @@
 package com.hvd.portfolio.ui.activity.main
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Call
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.hvd.portfolio.R
-import com.hvd.portfolio.ui.composable.ButtonText
+import com.hvd.portfolio.ui.composable.GradientPainterButton
 
 @Composable
 fun ContactButtons() {
+    val callButtonBrush = Brush.horizontalGradient(listOf(Color(0xFF28D8A3), Color(0xFF00BEB2)))
+
+    val linkedInButtonBrush = Brush.horizontalGradient(listOf(
+        colorResource(R.color.linkedInLeftColor),
+        colorResource(R.color.linkedInRightColor)))
+
+    val telegramButtonBrush = Brush.horizontalGradient(listOf(
+        colorResource(R.color.telegramLeftColor),
+        colorResource(R.color.telegramRightColor)))
+
     Row(Modifier.padding(16.dp)) {
         Column(Modifier.weight(1f)) {
-            CallButton()
+            GradientPainterButton(
+                stringResource(R.string.call),
+                rememberVectorPainter(Icons.Filled.Call),
+                callButtonBrush
+            )
         }
         Spacer(modifier = Modifier.width(16.dp))
         Column(Modifier.weight(1f)) {
-            LinkedInButton()
+            GradientPainterButton(
+                stringResource(R.string.linkedIn),
+                painterResource(R.drawable.ic_linkedin),
+                linkedInButtonBrush,
+                PaddingValues(1.dp)
+            )
         }
         Spacer(modifier = Modifier.width(16.dp))
         Column(Modifier.weight(1f)) {
-            TelegramButton()
+            GradientPainterButton(
+                stringResource(R.string.telegram),
+                painterResource(R.drawable.ic_telegram),
+                telegramButtonBrush,
+                PaddingValues(2.dp)
+            )
         }
-    }
-}
-
-
-@Composable
-fun CallButton() {
-    Button(
-        onClick = {},
-        Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(25.dp),
-        colors = ButtonDefaults.buttonColors(colorResource(R.color.purple_700))
-    ) {
-        ButtonText(stringResource(R.string.call))
-    }
-}
-
-@Composable
-fun LinkedInButton() {
-    Button(
-        onClick = {},
-        Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(25.dp),
-        colors = ButtonDefaults.buttonColors(colorResource(R.color.purple_700))
-    ) {
-
-        ButtonText(stringResource(R.string.linkedIn))
-    }
-}
-
-@Composable
-fun TelegramButton() {
-    Button(
-        onClick = {},
-        Modifier.fillMaxWidth().padding(0.dp),
-        shape = RoundedCornerShape(25.dp),
-        colors = ButtonDefaults.buttonColors(colorResource(R.color.purple_700))
-    ) {
-
-        ButtonText(text = stringResource(R.string.telegram))
     }
 }

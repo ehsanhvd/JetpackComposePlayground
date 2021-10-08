@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -19,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hvd.portfolio.R
 import com.hvd.portfolio.ui.composable.MontserratText
-import com.hvd.portfolio.ui.composable.MontserratTextButton
 
 @Composable
 fun TopHeader() {
@@ -60,12 +60,21 @@ fun TopRow() {
 
         Spacer(modifier = Modifier.weight(1f))
 
-        MontserratTextButton("\uD83C\uDDEE\uD83C\uDDF7", fontSize = 25.sp)
+        Image(
+            painterResource(R.drawable.iran_sq),
+            modifier = Modifier
+                .size(32.dp)
+                .padding(2.dp)
+                .clip(RoundedCornerShape(10.dp))
+                .padding(2.dp), contentDescription = "Fa",
+        )
+        Spacer(Modifier.width(16.dp))
         Icon(
             Icons.Filled.Bedtime,
             modifier = Modifier
-                .width(32.dp)
-                .height(32.dp), contentDescription = "Night mode",
+                .size(32.dp)
+                .padding(2.dp), contentDescription = "Night mode",
+            tint = colorResource(R.color.iconTintColor)
         )
     }
 }
