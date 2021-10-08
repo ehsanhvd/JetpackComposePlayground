@@ -16,10 +16,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hvd.portfolio.R
 import com.hvd.portfolio.ui.composable.MontserratText
+import com.hvd.portfolio.ui.composable.VazirText
 
 @Composable
 fun TopHeader() {
@@ -33,16 +35,19 @@ fun TopHeader() {
             fontWeight = FontWeight.Bold,
         )
 
-        MontserratText(stringResource(R.string.abountMe),
+        MontserratText(
+            stringResource(R.string.abountMe),
             Modifier.padding(16.dp, 0.dp),
             fontSize = 12.sp,
             textAlign = TextAlign.Justify,
-            color = Color.Gray)
+            color = Color.Gray
+        )
 
         ContactButtons()
     }
 }
 
+@Preview
 @Composable
 fun TopRow() {
     Row(
@@ -60,13 +65,12 @@ fun TopRow() {
 
         Spacer(modifier = Modifier.weight(1f))
 
-        Image(
-            painterResource(R.drawable.iran_sq),
-            modifier = Modifier
-                .size(32.dp)
-                .padding(2.dp)
-                .clip(RoundedCornerShape(10.dp))
-                .padding(2.dp), contentDescription = "Fa",
+
+        VazirText(
+            text = "فارسی",
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Bold,
+            color = colorResource(R.color.iconTintColor)
         )
         Spacer(Modifier.width(16.dp))
         Icon(

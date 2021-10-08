@@ -20,18 +20,20 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.hvd.portfolio.R
 
+object AppFontFamily {
+    val vazirFontFamily = FontFamily(
+        Font(R.font.vazir_regular_fd, FontWeight.Normal),
+        Font(R.font.vazir_medium_fd, FontWeight.Medium),
+        Font(R.font.vazir_bold_fd, FontWeight.Bold)
+    )
 
-val vazirFontFamily = FontFamily(
-    Font(R.font.vazir_regular_fd, FontWeight.Normal),
-    Font(R.font.vazir_medium_fd, FontWeight.Medium),
-    Font(R.font.vazir_bold_fd, FontWeight.Bold)
-)
+    val montserratFontFamily = FontFamily(
+        Font(R.font.montserrat_light, FontWeight.Light),
+        Font(R.font.montserrat_regular, FontWeight.Normal),
+        Font(R.font.montserrat_bold, FontWeight.Bold)
+    )
 
-val montserratFontFamily = FontFamily(
-    Font(R.font.montserrat_light, FontWeight.Light),
-    Font(R.font.montserrat_regular, FontWeight.Normal),
-    Font(R.font.montserrat_bold, FontWeight.Bold)
-)
+}
 
 @Composable
 fun VazirTextButton(text: String) {
@@ -87,7 +89,7 @@ fun MontserratText(
         fontSize,
         fontStyle,
         fontWeight,
-        montserratFontFamily,
+        AppFontFamily.montserratFontFamily,
         letterSpacing,
         textDecoration,
         textAlign,
@@ -124,7 +126,7 @@ fun VazirText(
         fontSize,
         fontStyle,
         fontWeight,
-        vazirFontFamily,
+        AppFontFamily.vazirFontFamily,
         letterSpacing,
         textDecoration,
         textAlign,

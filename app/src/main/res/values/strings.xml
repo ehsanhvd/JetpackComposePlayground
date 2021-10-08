@@ -11,4 +11,5 @@ Also capable of analyzing and architecting software systems with business-orient
     <string name="call">Call</string>
     <string name="linkedIn">LinkedIn</string>
     <string name="telegram">Telegram</string>
+    <string name="farsi" translatable="false">فارسی</string>
 </resources>
