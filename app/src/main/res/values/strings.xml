@@ -6,6 +6,9 @@
     <string name="ehsanLineBreakHasanvand">Ehsan\nHasanvand</string>
     <string name="abountMe">
 Android developer since 2015, took part in various enterprise application systems, Experienced in backend application development.
-Also capable of analyzing and architecting software systems with business-needs-oriented design.
+Also capable of analyzing and architecting software systems with business-oriented design.
     </string>
+    <string name="call">Call</string>
+    <string name="linkedIn">LinkedIn</string>
+    <string name="telegram">Telegram</string>
 </resources>

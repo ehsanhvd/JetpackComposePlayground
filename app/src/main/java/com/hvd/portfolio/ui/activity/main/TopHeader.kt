@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.Bedtime
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,7 +18,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hvd.portfolio.R
-import com.hvd.portfolio.ui.composable.MontserratSmallButton
 import com.hvd.portfolio.ui.composable.MontserratText
 import com.hvd.portfolio.ui.composable.MontserratTextButton
 
@@ -40,19 +39,7 @@ fun TopHeader() {
             textAlign = TextAlign.Justify,
             color = Color.Gray)
 
-        Row (Modifier.padding(16.dp)){
-            Column(Modifier.weight(1f)) {
-                MontserratSmallButton("Call")
-            }
-            Spacer(modifier = Modifier.width(16.dp))
-            Column(Modifier.weight(1f)) {
-                MontserratSmallButton("LinkedIn")
-            }
-            Spacer(modifier = Modifier.width(16.dp))
-            Column(Modifier.weight(1f)) {
-                MontserratSmallButton("Telegram")
-            }
-        }
+        ContactButtons()
     }
 }
 
@@ -75,7 +62,7 @@ fun TopRow() {
 
         MontserratTextButton("\uD83C\uDDEE\uD83C\uDDF7", fontSize = 25.sp)
         Icon(
-            Icons.Filled.DarkMode,
+            Icons.Filled.Bedtime,
             modifier = Modifier
                 .width(32.dp)
                 .height(32.dp), contentDescription = "Night mode",
