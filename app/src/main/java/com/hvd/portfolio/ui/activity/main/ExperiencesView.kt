@@ -2,13 +2,13 @@ package com.hvd.portfolio.ui.activity.main
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -25,12 +25,13 @@ fun ExperiencesView() {
         shape = RoundedCornerShape(12.dp),
         elevation = 2.dp
     ) {
-        Row(Modifier.padding(5.dp)) {
+        Row(Modifier.padding(3.dp)) {
             Image(
-                painterResource(id = R.drawable.ic_negah_logotype), "",
+                painterResource(id = R.drawable.ic_negah_banner), "",
                 Modifier
-                    .clip(CircleShape)
-                    .size(48.dp)
+                    .clip(RoundedCornerShape(10.dp,0.dp,0.dp,10.dp))
+                    .size(48.dp),
+                contentScale = ContentScale.Crop
             )
 
             Spacer(modifier = Modifier.width(5.dp))
