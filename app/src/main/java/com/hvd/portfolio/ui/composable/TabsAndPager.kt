@@ -17,12 +17,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.PagerScope
 import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun Tabs(@StringRes tabs: List<Int>) {
+fun TabsAndPager(@StringRes tabs: List<Int>, content: @Composable PagerScope.(page: Int) -> Unit,) {
     val pagerState = rememberPagerState(3, 0)
 
     val coroutineScope = rememberCoroutineScope()
@@ -45,7 +46,5 @@ fun Tabs(@StringRes tabs: List<Int>) {
         }
     }
 
-    HorizontalPager(state = pagerState, modifier = Modifier.fillMaxSize()) { page ->
-        MontserratText("page: $page", Modifier.fillMaxSize())
-    }
+    HorizontalPager(state = pagerState, modifier = Modifier.fillMaxSize(), content = content)
 }
