@@ -73,4 +73,5 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.17.0"
+    implementation "com.google.accompanist:accompanist-pager:0.18.0"
 }
