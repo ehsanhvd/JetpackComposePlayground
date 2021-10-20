@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -19,6 +19,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerScope
 import com.google.accompanist.pager.rememberPagerState
+import com.hvd.portfolio.R
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
@@ -31,7 +32,7 @@ fun TabsAndPager(@StringRes tabs: List<Int>, content: @Composable PagerScope.(pa
     TabRow(
         selectedTabIndex = pagerState.currentPage,
         Modifier.height(48.dp),
-        backgroundColor = Color.White,
+        backgroundColor = colorResource(R.color.backgroundColor),
         divider = { TabRowDefaults.Divider(Modifier.wrapContentSize(Alignment.BottomStart)) },
     ) {
 

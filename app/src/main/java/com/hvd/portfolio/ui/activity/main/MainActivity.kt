@@ -40,7 +40,7 @@ fun DefaultPreview() {
 
 @Composable
 fun MainActivityContent() {
-    Column {
+    Column(Modifier.background(colorResource(R.color.backgroundColor))) {
         TopHeader()
 
         TabsAndPager(
@@ -52,10 +52,9 @@ fun MainActivityContent() {
         ) { page ->
             Box(
                 Modifier
-                    .fillMaxSize()
-                    .background(colorResource(R.color.backgroundColor))) {
+                    .fillMaxSize()) {
                 if (page == 0) {
-                    ExperiencesView()
+                    ExperiencesViewColumn()
                 } else {
                     MontserratText("page: $page")
                 }
