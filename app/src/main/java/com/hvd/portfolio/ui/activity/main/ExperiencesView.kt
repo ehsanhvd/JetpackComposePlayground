@@ -78,7 +78,7 @@ fun ExperiencesView(
         modifier = Modifier
             .padding(5.dp)
             .fillMaxWidth(),
-        backgroundColor = colorResource(if (isNightMode) R.color.darkerGrey else R.color.backgroundColor),
+        backgroundColor = if (isNightMode) colorResource(R.color.darkerGrey) else Color.White,
         shape = RoundedCornerShape(12.dp),
         elevation = 2.dp,
         interactionSource = cardInteractionSource,
