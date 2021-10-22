@@ -22,6 +22,7 @@ import com.hvd.portfolio.R
 import com.hvd.portfolio.ui.composable.MontserratText
 import com.hvd.portfolio.ui.composable.VazirText
 
+@Preview
 @Composable
 fun TopHeader() {
     Column {
@@ -45,7 +46,6 @@ fun TopHeader() {
     }
 }
 
-@Preview
 @Composable
 fun TopRow() {
     Row(

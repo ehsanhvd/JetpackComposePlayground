@@ -15,4 +15,5 @@ Also capable of analyzing and architecting software systems with business-orient
     <string name="experience" translatable="false">Experience</string>
     <string name="skills" translatable="false">Skills</string>
     <string name="education" translatable="false">Education</string>
+    <string name="moreInfo" translatable="false">More info</string>
 </resources>
