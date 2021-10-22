@@ -22,39 +22,41 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hvd.portfolio.R
 import com.hvd.portfolio.ui.composable.MontserratText
 
-@Preview
 @Composable
-fun ExperiencesViewColumn() {
+fun ExperiencesViewColumn(isNightMode: Boolean) {
     Column(Modifier.padding(5.dp)) {
         ExperiencesView(
             "Negah Bank",
             "Full time, 1 yr",
             R.drawable.ic_negah_banner,
-            ContentScale.Crop
+            ContentScale.Crop,
+            isNightMode
         )
         ExperiencesView(
             "Hooshmand Sepehr",
             "Full time, 1 yr",
             R.drawable.ic_hooshmand_sepehr,
-            ContentScale.Inside
+            ContentScale.Inside,
+            isNightMode
         )
         ExperiencesView(
             "Maadiran",
             "Full time, 1 yr 3 mos",
             R.drawable.ic_maadiran,
-            ContentScale.Inside
+            ContentScale.Inside,
+            isNightMode
         )
         ExperiencesView(
             "Jhoobin",
             "Full time, 2 yrs",
             R.drawable.ic_jhoobin,
-            ContentScale.Inside
+            ContentScale.Inside,
+            isNightMode
         )
     }
 }
@@ -65,9 +67,10 @@ fun ExperiencesView(
     title: String,
     subtitle: String,
     @DrawableRes icon: Int,
-    contentScale: ContentScale
+    contentScale: ContentScale,
+    isNightMode: Boolean
 ) {
-    val context : Context = LocalContext.current
+    val context: Context = LocalContext.current
 
     val cardInteractionSource = remember { MutableInteractionSource() }
 
@@ -75,7 +78,7 @@ fun ExperiencesView(
         modifier = Modifier
             .padding(5.dp)
             .fillMaxWidth(),
-        backgroundColor = Color.White,
+        backgroundColor = colorResource(if (isNightMode) R.color.darkerGrey else R.color.backgroundColor),
         shape = RoundedCornerShape(12.dp),
         elevation = 2.dp,
         interactionSource = cardInteractionSource,
@@ -101,7 +104,10 @@ fun ExperiencesView(
             Spacer(modifier = Modifier.width(5.dp))
 
             Column(Modifier.fillMaxHeight()) {
-                MontserratText(text = title, fontSize = 20.sp, color = colorResource(R.color.iconTintColor),)
+                MontserratText(
+                    text = title,
+                    fontSize = 20.sp,
+                    color = if (isNightMode) Color.White else colorResource(R.color.iconTintColor), )
                 Spacer(modifier = Modifier.weight(1f))
                 MontserratText(
                     text = subtitle, fontSize = 14.sp, color = colorResource(
@@ -123,9 +129,9 @@ fun ExperiencesView(
                         Toast
                             .makeText(context, "Not implemented", Toast.LENGTH_SHORT)
                             .show()
-                    }  ,
+                    },
                 fontSize = 11.sp,
-                color = colorResource(R.color.iconTintColor),
+                color = if (isNightMode) Color.White else colorResource(R.color.iconTintColor),
                 fontWeight = FontWeight.Bold,
             )
         }

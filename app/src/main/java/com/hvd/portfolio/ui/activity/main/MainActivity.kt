@@ -8,8 +8,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.hvd.portfolio.R
@@ -27,7 +28,15 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         ActivityStyleUtils.applyWhiteStyle(window)
         setContent {
-            MainActivityContent()
+
+            var isNightMode by remember{
+                mutableStateOf(false)
+            }
+
+            MainActivityContent(isNightMode) {newNightMode ->
+                isNightMode = newNightMode
+                viewModel.isNightMode = isNightMode
+            }
         }
     }
 }
@@ -35,26 +44,28 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    MainActivityContent()
+    MainActivityContent(false){
+
+    }
 }
 
 @Composable
-fun MainActivityContent() {
-    Column(Modifier.background(colorResource(R.color.backgroundColor))) {
-        TopHeader()
+fun MainActivityContent(isNightMode: Boolean, nightModeChanged: (Boolean) -> Unit) {
+    Column(Modifier.background(if (isNightMode) Color.DarkGray else colorResource(R.color.backgroundColor))) {
+        TopHeader(isNightMode, nightModeChanged)
 
         TabsAndPager(
             tabs = listOf(
                 R.string.experience,
                 R.string.skills,
                 R.string.education
-            )
+            ), isNightMode
         ) { page ->
             Box(
                 Modifier
                     .fillMaxSize()) {
                 if (page == 0) {
-                    ExperiencesViewColumn()
+                    ExperiencesViewColumn(isNightMode)
                 } else {
                     MontserratText("page: $page")
                 }

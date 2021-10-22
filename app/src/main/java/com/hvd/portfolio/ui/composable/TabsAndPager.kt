@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -24,7 +25,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun TabsAndPager(@StringRes tabs: List<Int>, content: @Composable PagerScope.(page: Int) -> Unit,) {
+fun TabsAndPager(@StringRes tabs: List<Int>, isNightMode: Boolean, content: @Composable PagerScope.(page: Int) -> Unit,) {
     val pagerState = rememberPagerState(3, 0)
 
     val coroutineScope = rememberCoroutineScope()
@@ -32,7 +33,8 @@ fun TabsAndPager(@StringRes tabs: List<Int>, content: @Composable PagerScope.(pa
     TabRow(
         selectedTabIndex = pagerState.currentPage,
         Modifier.height(48.dp),
-        backgroundColor = colorResource(R.color.backgroundColor),
+        backgroundColor = if (isNightMode) Color.DarkGray else colorResource(R.color.backgroundColor),
+        contentColor = if (isNightMode) Color.White else colorResource(R.color.iconTintColor),
         divider = { TabRowDefaults.Divider(Modifier.wrapContentSize(Alignment.BottomStart)) },
     ) {
 
@@ -42,7 +44,7 @@ fun TabsAndPager(@StringRes tabs: List<Int>, content: @Composable PagerScope.(pa
                     pagerState.animateScrollToPage(i)
                 }
             }) {
-                MontserratText(stringResource(tabs[i]), fontSize = 18.sp)
+                MontserratText(stringResource(tabs[i]), fontSize = 18.sp, color = if (isNightMode) Color.White else colorResource(R.color.iconTintColor))
             }
         }
     }

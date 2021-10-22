@@ -1,6 +1,7 @@
 package com.hvd.portfolio.ui.activity.main
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
@@ -15,24 +16,23 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hvd.portfolio.R
 import com.hvd.portfolio.ui.composable.MontserratText
 import com.hvd.portfolio.ui.composable.VazirText
 
-@Preview
 @Composable
-fun TopHeader() {
+fun TopHeader(isNightMode: Boolean, nightModeChanged: (Boolean) -> Unit) {
     Column {
-        TopRow()
+        TopRow(isNightMode, nightModeChanged)
 
         MontserratText(
             stringResource(R.string.ehsanLineBreakHasanvand),
             Modifier.padding(16.dp, 0.dp),
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold,
+            color = colorResource(if (isNightMode) R.color.iconTintColorWhite else R.color.iconTintColor)
         )
 
         MontserratText(
@@ -47,7 +47,7 @@ fun TopHeader() {
 }
 
 @Composable
-fun TopRow() {
+fun TopRow(isNightModeCurrent : Boolean, nightModeChanged: (Boolean) -> Unit) {
     Row(
         Modifier
             .height(56.dp)
@@ -56,6 +56,7 @@ fun TopRow() {
     )
 
     {
+
         Image(
             painterResource(id = R.drawable.image), stringResource(R.string.profileImage),
             Modifier.clip(RoundedCornerShape(8.dp))
@@ -63,20 +64,22 @@ fun TopRow() {
 
         Spacer(modifier = Modifier.weight(1f))
 
-
         VazirText(
             text = "فارسی",
             fontSize = 15.sp,
             fontWeight = FontWeight.Bold,
-            color = colorResource(R.color.iconTintColor)
+            color = if (isNightModeCurrent) Color.White else colorResource(R.color.iconTintColor)
         )
         Spacer(Modifier.width(16.dp))
         Icon(
             Icons.Filled.Bedtime,
             modifier = Modifier
                 .size(32.dp)
-                .padding(2.dp), contentDescription = "Night mode",
-            tint = colorResource(R.color.iconTintColor)
+                .padding(2.dp)
+                .clickable {
+                    nightModeChanged(!isNightModeCurrent)
+                }, contentDescription = "Night mode",
+            tint = if (isNightModeCurrent) colorResource(R.color.iconTintColorYello) else colorResource(R.color.iconTintColor)
         )
     }
 }

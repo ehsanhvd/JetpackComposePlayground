@@ -6,6 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="darkerGrey">#333333</color>
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundColor">#FAFAFA</color>
     <color name="greyish">#a5a5a5</color>
@@ -15,4 +16,6 @@
     <color name="linkedInLeftColor">#618CB6</color>
     <color name="linkedInRightColor">#3B6083</color>
     <color name="iconTintColor">#4D565F</color>
+    <color name="iconTintColorWhite">#FFFFFF</color>
+    <color name="iconTintColorYello">#FBC02D</color>
 </resources>
