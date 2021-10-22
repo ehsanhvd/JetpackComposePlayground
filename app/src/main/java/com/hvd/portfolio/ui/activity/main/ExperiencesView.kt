@@ -34,7 +34,7 @@ fun ExperiencesViewColumn() {
     Column(Modifier.padding(5.dp)) {
         ExperiencesView(
             "Negah Bank",
-            "Full time, 11 mos",
+            "Full time, 1 yr",
             R.drawable.ic_negah_banner,
             ContentScale.Crop
         )
@@ -42,6 +42,18 @@ fun ExperiencesViewColumn() {
             "Hooshmand Sepehr",
             "Full time, 1 yr",
             R.drawable.ic_hooshmand_sepehr,
+            ContentScale.Inside
+        )
+        ExperiencesView(
+            "Maadiran",
+            "Full time, 1 yr 3 mos",
+            R.drawable.ic_maadiran,
+            ContentScale.Inside
+        )
+        ExperiencesView(
+            "Jhoobin",
+            "Full time, 2 yrs",
+            R.drawable.ic_jhoobin,
             ContentScale.Inside
         )
     }
@@ -57,7 +69,7 @@ fun ExperiencesView(
 ) {
     val context : Context = LocalContext.current
 
-    val interactionSource = remember { MutableInteractionSource() }
+    val cardInteractionSource = remember { MutableInteractionSource() }
 
     Card(
         modifier = Modifier
@@ -66,7 +78,7 @@ fun ExperiencesView(
         backgroundColor = Color.White,
         shape = RoundedCornerShape(12.dp),
         elevation = 2.dp,
-        interactionSource = interactionSource,
+        interactionSource = cardInteractionSource,
         indication = rememberRipple(),
         onClick = {
             Toast.makeText(context, "Not implemented", Toast.LENGTH_SHORT).show()
@@ -75,7 +87,7 @@ fun ExperiencesView(
         Row(
             Modifier
                 .padding(3.dp)
-                .height(56.dp)
+                .height(64.dp)
         ) {
             Image(
                 painterResource(id = icon), "",
@@ -101,13 +113,13 @@ fun ExperiencesView(
 
             Spacer(modifier = Modifier.weight(1f))
 
-            val interactionSource = remember { MutableInteractionSource() }
+            val moreInfoInteractionSource = remember { MutableInteractionSource() }
 
             MontserratText(
                 stringResource(R.string.moreInfo),
                 Modifier
                     .padding(5.dp, 0.dp)
-                    .clickable(interactionSource, rememberRipple(true)) {
+                    .clickable(moreInfoInteractionSource, rememberRipple(true)) {
                         Toast
                             .makeText(context, "Not implemented", Toast.LENGTH_SHORT)
                             .show()
