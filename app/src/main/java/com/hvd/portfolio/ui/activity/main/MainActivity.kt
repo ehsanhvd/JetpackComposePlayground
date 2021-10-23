@@ -30,11 +30,11 @@ class MainActivity : ComponentActivity() {
         refreshActivityStyle(viewModel.isNightMode)
 
         setContent {
-            var isNightMode by remember{
+            var isNightMode by remember {
                 mutableStateOf(viewModel.isNightMode)
             }
 
-            MainActivityContent(isNightMode) {newNightMode ->
+            MainActivityContent(isNightMode) { newNightMode ->
                 isNightMode = newNightMode
                 viewModel.isNightMode = isNightMode
 
@@ -43,8 +43,8 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun refreshActivityStyle(isNightMode: Boolean){
-        if (isNightMode){
+    private fun refreshActivityStyle(isNightMode: Boolean) {
+        if (isNightMode) {
             ActivityStyleUtils.applyBlackStyle(window)
         } else {
             ActivityStyleUtils.applyWhiteStyle(window)
@@ -54,8 +54,16 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    MainActivityContent(false){
+fun DarkPreview() {
+    MainActivityContent(true) {
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LightPreview() {
+    MainActivityContent(false) {
 
     }
 }
@@ -72,9 +80,7 @@ fun MainActivityContent(isNightMode: Boolean, nightModeChanged: (Boolean) -> Uni
                 R.string.education
             ), isNightMode
         ) { page ->
-            Box(
-                Modifier
-                    .fillMaxSize()) {
+            Box(Modifier.fillMaxSize()) {
                 if (page == 0) {
                     ExperiencesViewColumn(isNightMode)
                 } else {
