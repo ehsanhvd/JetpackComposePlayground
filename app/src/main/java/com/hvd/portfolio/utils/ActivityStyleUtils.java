@@ -77,6 +77,46 @@ public class ActivityStyleUtils
         }
     }
 
+    public static void applyBlackStyle(Window window)
+    {
+
+        int sdkInt = Build.VERSION.SDK_INT;
+
+        if (Build.VERSION_CODES.LOLLIPOP < sdkInt && sdkInt <= Build.VERSION_CODES.LOLLIPOP_MR1)
+        {
+            window.setStatusBarColor(ResUtils.getColor(R.color.greyish));
+            window.setNavigationBarColor(Color.BLACK);
+        }
+        else if (Build.VERSION_CODES.M <= sdkInt && sdkInt <= Build.VERSION_CODES.N_MR1)
+        {
+            int flag = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            int options = window.getDecorView().getSystemUiVisibility();
+
+            options &= ~flag;
+            window.getDecorView().setSystemUiVisibility(options);
+
+            window.setStatusBarColor(Color.DKGRAY);
+            window.setNavigationBarColor(Color.DKGRAY); //because soft buttons are white in this version
+        }
+        else if (Build.VERSION_CODES.O <= sdkInt)
+        {
+            int flag = View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+
+            int options = window.getDecorView().getSystemUiVisibility();
+
+            options &= ~flag;
+
+            window.getDecorView().setSystemUiVisibility(options);
+            window.setStatusBarColor(Color.DKGRAY);
+            window.setNavigationBarColor(Color.DKGRAY);
+        }
+        else
+        {
+            window.setStatusBarColor(Color.DKGRAY);
+            window.setNavigationBarColor(Color.DKGRAY);
+        }
+    }
+
 
     public static void applyWhiteStyleWithDarkNav(Window window, @ColorRes int navBarOreoColor)
     {

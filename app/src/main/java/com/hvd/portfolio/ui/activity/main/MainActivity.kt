@@ -26,17 +26,28 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ActivityStyleUtils.applyWhiteStyle(window)
-        setContent {
 
+        refreshActivityStyle(viewModel.isNightMode)
+
+        setContent {
             var isNightMode by remember{
-                mutableStateOf(false)
+                mutableStateOf(viewModel.isNightMode)
             }
 
             MainActivityContent(isNightMode) {newNightMode ->
                 isNightMode = newNightMode
                 viewModel.isNightMode = isNightMode
+
+                refreshActivityStyle(isNightMode)
             }
+        }
+    }
+
+    private fun refreshActivityStyle(isNightMode: Boolean){
+        if (isNightMode){
+            ActivityStyleUtils.applyBlackStyle(window)
+        } else {
+            ActivityStyleUtils.applyWhiteStyle(window)
         }
     }
 }
